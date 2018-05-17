@@ -19,6 +19,14 @@ int main()
 
     g=pow(2,n);
     //binary converter
+    for(i=1;i<g/2;i++)
+    {
+        ac.push_back(0);
+    }
+    for(i=g/2;i<g;i++)
+    {
+        ac.push_back(1);
+    }
     for(t=1;t<g;t++)
     {
         m=t;
@@ -84,9 +92,9 @@ int main()
     {
         for(j=0;j<n;j++)
         {
-            cout<<"["<<i<<"]"<<"["<<j<<"]"<<"="<<input[i][j]<<" ";
+            //cout<<"["<<i<<"]"<<"["<<j<<"]"<<"="<<input[i][j]<<" ";
         }
-        cout<<endl;
+        //cout<<endl;
     }
 
     myfile.open("weight.txt");
@@ -117,6 +125,17 @@ int main()
             output.push_back(0);
         }
     }
+    //Accuracy Measure
+    float right=0.0;
+    for(i=0;i<ac.size();i++)
+    {
+        if(ac[i]==output[i])
+        {
+            right++;
+        }
+    }
+    cout<<endl;
+    cout<<"Testing Accuracy="<<(right/(float)(g-2))*100.0<<"%"<<endl;
 
 
 
